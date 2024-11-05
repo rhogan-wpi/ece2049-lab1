@@ -10,7 +10,7 @@ typedef enum{
   INPUT_FALSE,
   GAME_OVER,
 } state;
-
+// Test diff
 void fake_delay(int seconds)
 {
   int n = 0;
