@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <msp430.h>
 #include "peripherals.h"
-//Test diff
 typedef enum{
   INIT,
   OUTPUT,
