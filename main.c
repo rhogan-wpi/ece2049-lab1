@@ -99,6 +99,8 @@ void main()
         // Sound Buzzer
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(2);
+        set_leds(0);
+        fake_delay(1);
       }
       fake_delay(2);
       set_leds(0);
@@ -115,6 +117,7 @@ void main()
         char ans = get_input();
         // Set LEDs
         set_leds(ans);
+        fake_delay(1);
         // Play buzzer
         if (ans != answer_key[i]) {
           fake_delay(1);
@@ -146,7 +149,7 @@ void main()
       Graphics_drawStringCentered(&g_sContext, "WRONG!", 6, 48, 15, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
       // Branch to GAME_OVER
-      fake_delay(2);
+      fake_delay(4);
       game_state = GAME_OVER;
       break;
     }
