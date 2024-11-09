@@ -99,11 +99,11 @@ void main()
         // Sound Buzzer
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(2);
-        set_leds(0);
+        set_leds('0');
         fake_delay(1);
       }
       fake_delay(2);
-      set_leds(0);
+      set_leds('0');
       game_state = WAIT_FOR_INPUT;
       break;
     }
@@ -139,8 +139,8 @@ void main()
       // Increment counter
       loop_num++;
       fake_delay(2);
-      // Branch to WAIT_FOR_INPUT
-      game_state = WAIT_FOR_INPUT;
+      // Branch to OUTPUT
+      game_state = OUTPUT;
       break;
     }
     case INPUT_FALSE: {
