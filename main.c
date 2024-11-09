@@ -13,7 +13,7 @@ typedef enum{
 // Test diff
 void fake_delay(int seconds)
 {
-  int n = 0;
+  volatile unsigned int n = 0;
   while (n < (seconds * 6500)) {
     n++;
   }
@@ -98,7 +98,7 @@ void main()
         set_leds(answer_key[i]);
         // Sound Buzzer
         // WRITE A FUNCTION FOR SPECIFIC NOTES
-        fake_delay(6);
+        fake_delay(30);
         set_leds('0');
         fake_delay(3);
       }
