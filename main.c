@@ -89,6 +89,9 @@ void main()
       break;
     }
     case OUTPUT: {
+      Graphics_clearDisplay(&g_sContext); // Clear the display
+      Graphics_drawStringCentered(&g_sContext, "Watch closely...", 16, 48, 35, TRANSPARENT_TEXT);
+      Graphics_flushBuffer(&g_sContext);
       // Enter loop for N times
       for (i = 0; i < loop_num; i++) {
         // Blink LED
@@ -103,6 +106,9 @@ void main()
       break;
     }
     case WAIT_FOR_INPUT: {
+      Graphics_clearDisplay(&g_sContext); // Clear the display
+      Graphics_drawStringCentered(&g_sContext, "now input", 9, 48, 35, TRANSPARENT_TEXT);
+      Graphics_flushBuffer(&g_sContext);
       // Enter loop for N times
       for (i = 0; i < loop_num; i++) {
         // Store user input
@@ -129,7 +135,7 @@ void main()
       Graphics_flushBuffer(&g_sContext);
       // Increment counter
       loop_num++;
-      fake_delay(1);
+      fake_delay(2);
       // Branch to WAIT_FOR_INPUT
       game_state = WAIT_FOR_INPUT;
       break;
@@ -140,7 +146,7 @@ void main()
       Graphics_drawStringCentered(&g_sContext, "WRONG!", 6, 48, 15, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
       // Branch to GAME_OVER
-      fake_delay(1);
+      fake_delay(2);
       game_state = GAME_OVER;
       break;
     }
@@ -148,7 +154,7 @@ void main()
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "GAME OVER", 9, 48, 15, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
-      fake_delay(1);
+      fake_delay(3);
       // Display Play again?
       Graphics_drawStringCentered(&g_sContext, "Play again?", 12, 48, 45, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
