@@ -97,8 +97,8 @@ void main()
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(2);
       }
-      fake_delay(1);
-      set_leds();
+      fake_delay(2);
+      set_leds(0);
       game_state = WAIT_FOR_INPUT;
       break;
     }
@@ -110,11 +110,16 @@ void main()
         // Set LEDs
         set_leds(ans);
         // Play buzzer
-        if (ans != answer_key[i])
+        if (ans != answer_key[i]) {
+          fake_delay(1);
           game_state = INPUT_FALSE;
+          break;
+        }
       }
-      fake_delay(1);
-      game_state = INPUT_TRUE;
+      if (game_state != INPUT_FALSE) {
+        fake_delay(1);
+        game_state = INPUT_TRUE;
+      }
       break;
     }
     case INPUT_TRUE: {
