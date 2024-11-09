@@ -46,7 +46,7 @@ void main()
   Graphics_clearDisplay(&g_sContext); 
 
   // Initialize the game_state struct and variables
-  int loop_num;
+  int loop_num, i;
   char answer_key[16];
   state game_state = INIT;
   while(1) {
@@ -60,7 +60,7 @@ void main()
       // Initialize the loop counter
       loop_num = 1;
       // Initialize the answer array to random characters 1, 2, 3, 4.
-      for (int i = 0; i < 16; i++) {
+      for (i = 0; i < 16; i++) {
         // Generate random numbers, take the remainder, then add an offset to convert to the correct representation as char
         answer_key[i] = (rand() % 4) + '1';
       }
@@ -71,7 +71,7 @@ void main()
     }
     case OUTPUT: {
       // Enter loop for N times
-      for (int i = 0; i < loop_num; i++) {
+      for (i = 0; i < loop_num; i++) {
         // Blink LED
         setLeds(answer_key[i] - '0');
         // Sound Buzzer
@@ -83,7 +83,7 @@ void main()
     }
     case WAIT_FOR_INPUT: {
       // Enter loop for N times
-      for (int i = 0; i < loop_num; i++) {
+      for (i = 0; i < loop_num; i++) {
         // Store user input
         char ans = get_input();
         // Set LEDs
