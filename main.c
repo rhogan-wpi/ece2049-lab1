@@ -28,6 +28,22 @@ char get_input()
   return key;
 }
 
+void set_leds(char key)
+{
+  key = key - '0';
+  unsigned char output_mask = 0;
+  // Zero output register
+  P6OUT &= ~(BIT4|BIT3|BIT2|BIT1);
+  if (key == 1)
+    output_mask = output_mask | BIT4;
+  if (key == 2)
+    output_mask = output_mask | BIT3;
+  if (key == 3)
+    output_mask = output_mask | BIT1;
+  if (key == 4)
+    output_mask = output_mask | BIT2;
+}
+
 void main()
 {
   //REQUIRED variables
@@ -43,7 +59,7 @@ void main()
   configDisplay();
   configKeypad();
   // Clear the display
-  Graphics_clearDisplay(&g_sContext); 
+  Graphics_clearDisplay(&g_sContext);
 
   // Initialize the game_state struct and variables
   int loop_num, i;
@@ -55,7 +71,8 @@ void main()
       // Display the starting text
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "SIMON", 5, 48, 15, TRANSPARENT_TEXT);
-      Graphics_drawStringCentered(&g_sContext, "Press any key to start", 24, 48, 35, TRANSPARENT_TEXT);
+      Graphics_drawStringCentered(&g_sContext, "Press any key", 15, 48, 35, TRANSPARENT_TEXT);
+      Graphics_drawStringCentered(&g_sContext, "to start", 8, 48, 35, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
       // Initialize the loop counter
       loop_num = 1;
@@ -73,7 +90,7 @@ void main()
       // Enter loop for N times
       for (i = 0; i < loop_num; i++) {
         // Blink LED
-        setLeds(answer_key[i] - '0');
+        set_leds(answer_key[i]);
         // Sound Buzzer
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(2);
@@ -87,7 +104,7 @@ void main()
         // Store user input
         char ans = get_input();
         // Set LEDs
-        setLeds(ans - '0');
+        set_leds(ans);
         // Play buzzer
         if (ans != answer_key[i])
           game_state = INPUT_FALSE;
