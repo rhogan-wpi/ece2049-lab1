@@ -100,7 +100,7 @@ void main()
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(30);
         set_leds('0');
-        fake_delay(3);
+        fake_delay(10);
       }
       fake_delay(2);
       set_leds('0');
