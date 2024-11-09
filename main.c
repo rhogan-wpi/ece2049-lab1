@@ -42,6 +42,7 @@ void set_leds(char key)
     output_mask = output_mask | BIT1;
   if (key == 4)
     output_mask = output_mask | BIT2;
+  P6OUT = P6OUT | output_mask;
 }
 
 void main()
@@ -72,7 +73,7 @@ void main()
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "SIMON", 5, 48, 15, TRANSPARENT_TEXT);
       Graphics_drawStringCentered(&g_sContext, "Press any key", 15, 48, 35, TRANSPARENT_TEXT);
-      Graphics_drawStringCentered(&g_sContext, "to start", 8, 48, 35, TRANSPARENT_TEXT);
+      Graphics_drawStringCentered(&g_sContext, "to start", 8, 48, 45, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
       // Initialize the loop counter
       loop_num = 1;
