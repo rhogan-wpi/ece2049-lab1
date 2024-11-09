@@ -98,9 +98,9 @@ void main()
         set_leds(answer_key[i]);
         // Sound Buzzer
         // WRITE A FUNCTION FOR SPECIFIC NOTES
-        fake_delay(2);
+        fake_delay(6);
         set_leds('0');
-        fake_delay(1);
+        fake_delay(3);
       }
       fake_delay(2);
       set_leds('0');
@@ -138,7 +138,7 @@ void main()
       Graphics_flushBuffer(&g_sContext);
       // Increment counter
       loop_num++;
-      fake_delay(2);
+      fake_delay(6);
       // Branch to OUTPUT
       game_state = OUTPUT;
       break;
@@ -154,6 +154,7 @@ void main()
       break;
     }
     case GAME_OVER: {
+      set_leds('0'); // Clear LEDs
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "GAME OVER", 9, 48, 15, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
