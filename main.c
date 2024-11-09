@@ -14,7 +14,7 @@ typedef enum{
 void fake_delay(int seconds)
 {
   int n = 0;
-  while (n < (seconds * 650)) {
+  while (n < (seconds * 6500)) {
     n++;
   }
 }
@@ -84,6 +84,7 @@ void main()
       }
       // Wait in "Press any key to start"
       get_input();
+      fake_delay(1);
       game_state = OUTPUT;
       break;
     }
@@ -96,6 +97,8 @@ void main()
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(2);
       }
+      fake_delay(1);
+      set_leds();
       game_state = WAIT_FOR_INPUT;
       break;
     }
@@ -110,6 +113,7 @@ void main()
         if (ans != answer_key[i])
           game_state = INPUT_FALSE;
       }
+      fake_delay(1);
       game_state = INPUT_TRUE;
       break;
     }
