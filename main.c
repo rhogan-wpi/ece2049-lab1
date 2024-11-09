@@ -30,10 +30,20 @@ char get_input()
 
 void main()
 {
+  //REQUIRED variables
+  unsigned char currKey=0, dispSz = 3;
+  unsigned char dispThree[3];
+
+  WDTCTL = WDTPW | WDTHOLD;    // Stop watchdog timer. Always need to stop this!!
+  // You can then configure it properly, if desired
+
+
   // Initialize the MSP430
   initLeds();
   configDisplay();
   configKeypad();
+  // Clear the display
+  Graphics_clearDisplay(&g_sContext); 
 
   // Initialize the game_state struct and variables
   int loop_num;
