@@ -59,7 +59,7 @@ void buzzer_on(char key)
   // Now configure the timer period, which controls the PWM period
   // Doing this with a hard coded values is NOT the best method
   // We do it here only as an example. You will fix this in Lab 2.
-  TB0CCR0   = 128 * n;                    // Set the PWM period in ACLK ticks
+  TB0CCR0   = 128 * key;                    // Set the PWM period in ACLK ticks
   TB0CCTL0 &= ~CCIE;                  // Disable timer interrupts
 
   // Configure CC register 5, which is connected to our PWM pin TB0.5
