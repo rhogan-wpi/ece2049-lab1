@@ -114,7 +114,7 @@ void main()
         char ans = get_input();
         char disp[2] = {ans, '\0'};
         Graphics_clearDisplay(&g_sContext); // Clear the display
-        Graphics_drawStringCentered(&g_sContext, ans, 1, 48, 35, TRANSPARENT_TEXT);
+        Graphics_drawStringCentered(&g_sContext, disp, 1, 48, 35, TRANSPARENT_TEXT);
         Graphics_flushBuffer(&g_sContext);
         // Set LEDs
         set_leds(ans);
