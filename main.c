@@ -6,7 +6,6 @@ typedef enum{
   INIT,
   OUTPUT,
   WAIT_FOR_INPUT,
-  CHECK_INPUT,
   INPUT_TRUE,
   INPUT_FALSE,
   GAME_OVER,
