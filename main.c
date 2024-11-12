@@ -138,6 +138,7 @@ void main()
         buzzer_on(answer_key[i]);
         // WRITE A FUNCTION FOR SPECIFIC NOTES
         fake_delay(7);
+        BuzzerOff();
         set_leds('0');
         fake_delay(4);
       }
@@ -160,8 +161,10 @@ void main()
         Graphics_flushBuffer(&g_sContext);
         // Set LEDs
         set_leds(ans);
-        fake_delay(1);
         // Play buzzer
+        buzzer_on(ans);
+        fake_delay(1);
+        BuzzerOff();
         if (ans != answer_key[i]) {
           fake_delay(1);
           game_state = INPUT_FALSE;
