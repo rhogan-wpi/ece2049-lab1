@@ -36,13 +36,13 @@ void set_leds(char key)
   // Zero output register
   P6OUT &= ~(BIT4|BIT3|BIT2|BIT1);
   if (key == 1)
-    output_mask = output_mask | BIT4;
+    output_mask = output_mask | BIT2;
   if (key == 2)
     output_mask = output_mask | BIT1;
   if (key == 3)
     output_mask = output_mask | BIT3;
   if (key == 4)
-    output_mask = output_mask | BIT2;
+    output_mask = output_mask | BIT4;
   P6OUT = P6OUT | output_mask;
 }
 
