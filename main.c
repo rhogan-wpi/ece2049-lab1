@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <msp430.h>
 #include "peripherals.h"
+//Testing laptop commit
 typedef enum{
   INIT,
   OUTPUT,
