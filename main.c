@@ -47,9 +47,6 @@ void set_leds(char key)
 
 void main()
 {
-  //REQUIRED variables
-  unsigned char currKey=0, dispSz = 3;
-  unsigned char dispThree[3];
 
   WDTCTL = WDTPW | WDTHOLD;    // Stop watchdog timer. Always need to stop this!!
   // You can then configure it properly, if desired
