@@ -81,7 +81,9 @@ void main()
         answer_key[i] = (rand() % 4) + '1';
       }
       // Wait in "Press any key to start"
-      get_input();
+      char ans =get_input();
+      if (ans != '*')
+        break;
       fake_delay(1);
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "3...", 4, 48, 35, TRANSPARENT_TEXT);
