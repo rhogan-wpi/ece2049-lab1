@@ -101,6 +101,7 @@ void main()
       break;
     }
     case OUTPUT: {
+      set_leds('0');
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "Watch closely...", 16, 48, 35, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
@@ -110,9 +111,9 @@ void main()
         set_leds(answer_key[i]);
         // Sound Buzzer
         // WRITE A FUNCTION FOR SPECIFIC NOTES
-        fake_delay(30);
+        fake_delay(7);
         set_leds('0');
-        fake_delay(10);
+        fake_delay(4);
       }
       fake_delay(2);
       set_leds('0');
