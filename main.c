@@ -11,6 +11,7 @@ typedef enum{
   GAME_OVER,
 } state;
 // Test diff
+
 void fake_delay(int seconds)
 {
   volatile unsigned int n = 0;
@@ -69,8 +70,8 @@ void main()
       // Display the starting text
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "SIMON", 5, 48, 15, TRANSPARENT_TEXT);
-      Graphics_drawStringCentered(&g_sContext, "Press any key", 15, 48, 35, TRANSPARENT_TEXT);
-      Graphics_drawStringCentered(&g_sContext, "to start", 8, 48, 45, TRANSPARENT_TEXT);
+      Graphics_drawStringCentered(&g_sContext, "Press * to", 10, 48, 35, TRANSPARENT_TEXT);
+      Graphics_drawStringCentered(&g_sContext, "start", 5, 48, 45, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
       // Initialize the loop counter
       loop_num = 1;
@@ -81,6 +82,18 @@ void main()
       }
       // Wait in "Press any key to start"
       get_input();
+      fake_delay(1);
+      Graphics_clearDisplay(&g_sContext); // Clear the display
+      Graphics_drawStringCentered(&g_sContext, "3...", 4, 48, 35, TRANSPARENT_TEXT);
+      Graphics_flushBuffer(&g_sContext);
+      fake_delay(1);
+      Graphics_clearDisplay(&g_sContext); // Clear the display
+      Graphics_drawStringCentered(&g_sContext, "2...", 4, 48, 35, TRANSPARENT_TEXT);
+      Graphics_flushBuffer(&g_sContext);
+      fake_delay(1);
+      Graphics_clearDisplay(&g_sContext); // Clear the display
+      Graphics_drawStringCentered(&g_sContext, "1...", 4, 48, 35, TRANSPARENT_TEXT);
+      Graphics_flushBuffer(&g_sContext);
       fake_delay(1);
       game_state = OUTPUT;
       break;
