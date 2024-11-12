@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <msp430.h>
 #include "peripherals.h"
+#define ARRAY_LEN 32
 //Testing laptop commit
 typedef enum{
   INIT,
@@ -86,7 +87,7 @@ void main()
 
   // Initialize the game_state struct and variables
   int loop_num, i;
-  char answer_key[32];
+  char answer_key[ARRAY_LEN];
   state game_state = INIT;
   while(1) {
     switch(game_state) {
@@ -100,7 +101,7 @@ void main()
       // Initialize the loop counter
       loop_num = 1;
       // Initialize the answer array to random characters 1, 2, 3, 4.
-      for (i = 0; i < 32; i++) {
+      for (i = 0; i < ARRAY_LEN; i++) {
         // Generate random numbers, take the remainder, then add an offset to convert to the correct representation as char
         answer_key[i] = (rand() % 4) + '1';
       }
