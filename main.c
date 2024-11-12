@@ -112,6 +112,9 @@ void main()
       for (i = 0; i < loop_num; i++) {
         // Store user input
         char ans = get_input();
+        Graphics_clearDisplay(&g_sContext); // Clear the display
+        Graphics_drawStringCentered(&g_sContext, ans, 9, 48, 35, TRANSPARENT_TEXT);
+        Graphics_flushBuffer(&g_sContext);
         // Set LEDs
         set_leds(ans);
         fake_delay(1);
