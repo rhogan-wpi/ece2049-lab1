@@ -101,10 +101,11 @@ void main()
       break;
     }
     case OUTPUT: {
-      set_leds('0');
       Graphics_clearDisplay(&g_sContext); // Clear the display
       Graphics_drawStringCentered(&g_sContext, "Watch closely...", 16, 48, 35, TRANSPARENT_TEXT);
       Graphics_flushBuffer(&g_sContext);
+      set_leds(0);
+      fake_delay(1);
       // Enter loop for N times
       for (i = 0; i < loop_num; i++) {
         // Blink LED
